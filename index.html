@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>沙井村403号小院 · 房东直租</title>
+<style>
+
+
+:root{
+  --green:#197b52;
+  --green-light:#e7f5ee;
+  --green-mid:#2f9e6a;
+  --bg:#f4f5f6;
+  --card:#ffffff;
+  --text:#1c1e21;
+  --text-sub:#6b7076;
+  --line:#e5e7ea;
+  --accent:#e0821d;
+  --blue:#3b7ddd;
+  --gray:#b9bcc0;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+.wrap{max-width:600px;margin:0 auto;background:var(--bg);min-height:100vh;overflow-x:hidden;padding-bottom:78px;}
+
+/* ---------- 封面 ---------- */
+.hero{position:relative;height:300px;background:linear-gradient(135deg,#2f9e6a 0%,#197b52 100%);overflow:hidden;}
+.hero-img{position:absolute;inset:0;background:#2f9e6a center/cover no-repeat;background-image:url('cover.jpg');}
+.hero-mask{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.10) 0%,rgba(0,0,0,.05) 38%,rgba(0,0,0,.74) 100%);}
+.hero-content{position:absolute;left:0;right:0;bottom:0;padding:20px 20px 22px;color:#fff;}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.22);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:12px;padding:4px 11px;border-radius:20px;margin-bottom:10px;}
+.hero-title{font-size:27px;font-weight:800;line-height:1.25;margin:0 0 7px;text-shadow:0 1px 8px rgba(0,0,0,.35);letter-spacing:-.5px;}
+.hero-sub{font-size:14px;opacity:.93;margin:0;text-shadow:0 1px 6px rgba(0,0,0,.4);}
+
+/* ---------- 顶部快捷导航 ---------- */
+.quick-nav{
+  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);
+  backdrop-filter:blur(8px);display:flex;overflow-x:auto;
+  border-bottom:1px solid var(--line);padding:0 6px;
+  scrollbar-width:none;
+}
+.quick-nav::-webkit-scrollbar{display:none;}
+.quick-nav a{
+  flex:0 0 auto;padding:12px 13px;font-size:14px;font-weight:700;color:var(--text-sub);
+  text-decoration:none;white-space:nowrap;position:relative;
+}
+.quick-nav a:active{color:var(--green);}
+
+/* ---------- 速览条 ---------- */
+.strip{display:flex;background:var(--card);padding:16px 8px;border-bottom:1px solid var(--line);}
+.strip .item{flex:1;text-align:center;position:relative;}
+.strip .item+.item::before{content:"";position:absolute;left:0;top:14%;height:72%;width:1px;background:var(--line);}
+.strip .num{font-size:20px;font-weight:800;color:var(--green);line-height:1.2;}
+.strip .num small{font-size:12px;font-weight:600;}
+.strip .lbl{font-size:12px;color:var(--text-sub);margin-top:2px;}
+
+/* ---------- 更新条 ---------- */
+.update-bar{background:linear-gradient(90deg,#fff7ea,#fdf1dc);color:#8a5a10;font-size:12.5px;padding:9px 20px;display:flex;align-items:center;gap:7px;border-bottom:1px solid #f2e3c9;}
+.update-bar .dot{width:7px;height:7px;border-radius:50%;background:#27a366;flex:0 0 auto;animation:pulse 2s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(39,163,102,.55);}70%{box-shadow:0 0 0 7px rgba(39,163,102,0);}100%{box-shadow:0 0 0 0 rgba(39,163,102,0);}}
+
+/* ---------- 板块 ---------- */
+.section{background:var(--card);margin-top:10px;padding:22px 20px;}
+.section-head{display:flex;align-items:center;gap:9px;margin:0 0 4px;}
+.section-head .ico{width:28px;height:28px;border-radius:9px;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:16px;flex:0 0 auto;}
+.section-head h2{font-size:18px;font-weight:800;margin:0;letter-spacing:-.2px;}
+.section-head .note{font-size:12px;color:var(--text-sub);margin-left:auto;font-weight:400;}
+.section-desc{font-size:12.5px;color:var(--text-sub);margin:0 0 15px;padding-left:37px;}
+
+/* ---------- 房源亮点 ---------- */
+.highlights{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+.hl-card{
+  background:linear-gradient(150deg,#f0faf5,#e7f5ee);
+  border:1px solid #d4ecdf;border-radius:14px;padding:14px 13px;
+}
+.hl-card .e{font-size:22px;line-height:1;margin-bottom:8px;display:block;}
+.hl-card .t{font-size:14.5px;font-weight:800;margin:0 0 3px;color:#154f36;}
+.hl-card .d{font-size:12px;color:#4d7a66;margin:0;line-height:1.5;}
+.hl-card.wide{grid-column:1/-1;display:flex;align-items:center;gap:13px;}
+.hl-card.wide .e{margin:0;}
+
+/* ---------- 实拍照片 ---------- */
+.photo-mosaic{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.photo-mosaic .pm{
+  aspect-ratio:4/3;border-radius:12px;overflow:hidden;position:relative;
+  background:linear-gradient(135deg,#e8eaec,#dadee1);
+  display:flex;align-items:center;justify-content:center;font-size:22px;color:#b0b5ba;
+}
+.photo-mosaic .pm:first-child{grid-column:1/-1;aspect-ratio:16/10;background:linear-gradient(135deg,#dfe4e7,#cbd2d6);}
+.photo-mosaic .pm:first-child::before{content:"🏠";font-size:40px;opacity:.5;}
+.photo-mosaic .pm.big{grid-column:1/-1;aspect-ratio:16/10;}
+.photo-mosaic .pm .cap{
+  position:absolute;left:0;bottom:0;right:0;font-size:11.5px;color:#fff;font-weight:600;
+  background:linear-gradient(transparent,rgba(0,0,0,.6));padding:14px 10px 7px;
+}
+
+/* ---------- 位置 ---------- */
+.addr-box{display:flex;gap:12px;align-items:flex-start;padding-bottom:14px;border-bottom:1px dashed var(--line);margin-bottom:14px;margin-top:12px;}
+.addr-box .pin{font-size:20px;line-height:1.3;}
+.addr-box .addr-main{font-size:15px;font-weight:700;margin:0 0 3px;}
+.addr-box .addr-tip{font-size:12.5px;color:var(--text-sub);margin:0;}
+.nav-btns{display:flex;gap:10px;}
+.nav-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:12px;border-radius:12px;font-size:14.5px;font-weight:700;text-decoration:none;}
+.nav-btn.primary{background:var(--green);color:#fff;box-shadow:0 4px 12px rgba(25,123,82,.25);}
+.nav-btn.ghost{background:var(--green-light);color:var(--green);}
+.map-preview{
+  margin-top:14px;border-radius:12px;overflow:hidden;border:1px solid var(--line);height:120px;position:relative;
+  display:flex;align-items:center;justify-content:center;color:var(--text-sub);font-size:13px;
+  background-color:#eef1f0;
+  background-image:linear-gradient(90deg,rgba(150,160,170,.14) 1px,transparent 1px),linear-gradient(rgba(150,160,170,.14) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+.map-preview .me{position:absolute;background:#fff;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:700;color:var(--green);box-shadow:0 2px 8px rgba(0,0,0,.15);white-space:nowrap;}
+
+/* ---------- 楼层房态 ---------- */
+.filter-tabs{display:flex;gap:8px;margin:12px 0 16px;}
+.filter-tabs button{
+  flex:1;padding:9px;border-radius:11px;border:1px solid var(--line);background:#fff;
+  font-size:13.5px;font-weight:700;color:var(--text-sub);cursor:pointer;font-family:inherit;
+  transition:all .15s;
+}
+.filter-tabs button.active{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 3px 10px rgba(25,123,82,.22);}
+.filter-tabs button .n{font-size:11px;opacity:.75;font-weight:600;}
+
+.floor-list{display:flex;flex-direction:column-reverse;gap:8px;}
+.floor-row{display:flex;gap:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;}
+.floor-tag{flex:0 0 62px;background:#f7f8f9;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;color:var(--text-sub);border-right:1px solid var(--line);padding:10px 4px;}
+.floor-tag .f{font-size:17px;color:#3a3d41;line-height:1;}
+.floor-tag .t{font-size:10.5px;margin-top:3px;letter-spacing:.5px;}
+.floor-body{flex:1;padding:9px 10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.room-chip{
+  font-size:12px;padding:6px 8px;border-radius:8px;font-weight:700;
+  background:#f0f1f2;color:#9aa0a6;border:1px solid #e8eaec;min-width:52px;text-align:center;
+  cursor:default;
+}
+.room-chip.vacant{background:var(--green-light);color:var(--green);border-color:#bfe3d1;box-shadow:0 1px 3px rgba(25,123,82,.12);cursor:pointer;}
+.room-chip.vacant::after{content:" 空";font-size:10px;opacity:.8;}
+.room-chip.booked{background:#eaf1fb;color:var(--blue);border-color:#c9dcf6;cursor:pointer;}
+.room-chip.booked::after{content:" 订";font-size:10px;opacity:.8;}
+.room-chip.hidden{display:none;}
+.floor-note{font-size:11.5px;color:var(--text-sub);width:100%;margin-top:1px;}
+.floor-special .floor-tag{background:#fff7ea;color:#8a5a10;}
+.floor-special .floor-tag .f{color:#b06a12;}
+.legend{display:flex;gap:16px;margin-top:14px;font-size:12px;color:var(--text-sub);align-items:center;flex-wrap:wrap;}
+.legend span{display:flex;align-items:center;gap:5px;}
+.legend i{width:13px;height:13px;border-radius:4px;display:inline-block;}
+.legend i.v{background:var(--green-light);border:1px solid #bfe3d1;}
+.legend i.r{background:#f0f1f2;border:1px solid #e8eaec;}
+.legend i.b{background:#eaf1fb;border:1px solid #c9dcf6;}
+
+/* ---------- 价格表 ---------- */
+.price-table{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:12px;}
+.price-row{display:flex;align-items:center;padding:13px 15px;border-bottom:1px solid var(--line);font-size:14px;}
+.price-row:last-child{border-bottom:none;}
+.price-row.head{background:#f7f8f9;font-size:12.5px;color:var(--text-sub);font-weight:700;padding:10px 15px;}
+.price-row .c1{flex:1.4;font-weight:700;}
+.price-row .c2{flex:1.2;color:var(--text-sub);font-size:13px;}
+.price-row .c3{flex:1;text-align:right;font-weight:800;color:var(--accent);}
+.price-row .c3 small{font-size:11px;font-weight:600;}
+.price-note{font-size:12px;color:var(--text-sub);margin:12px 0 0;}
+
+/* ---------- 配套 ---------- */
+.facility-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:12px;}
+.facility-grid .cell{background:#fff;padding:12px 13px;display:flex;align-items:center;gap:9px;font-size:13.5px;}
+.facility-grid .cell .fi{font-size:17px;flex:0 0 auto;}
+.facility-grid .cell .ft{font-weight:700;line-height:1.3;}
+.facility-grid .cell .fs{font-size:11.5px;color:var(--text-sub);display:block;font-weight:400;}
+
+/* ---------- 房东承诺 ---------- */
+.promise{background:linear-gradient(160deg,#f0faf5,#e3f4ec);border:1px solid #d4ecdf;border-radius:16px;padding:18px 17px;margin-top:14px;}
+.promise-item{display:flex;gap:11px;align-items:flex-start;padding:9px 0;}
+.promise-item+.promise-item{border-top:1px dashed #c8e5d6;}
+.promise-item .pi{font-size:17px;flex:0 0 auto;line-height:1.4;}
+.promise-item .pt{font-size:14px;font-weight:800;color:#154f36;margin:0 0 2px;}
+.promise-item .pd{font-size:12.5px;color:#4d7a66;margin:0;}
+
+/* ---------- 入住流程 ---------- */
+.flow{display:flex;flex-direction:column;gap:0;margin-top:14px;}
+.flow-step{display:flex;gap:13px;position:relative;padding-bottom:18px;}
+.flow-step:last-child{padding-bottom:0;}
+.flow-step::before{content:"";position:absolute;left:15px;top:32px;bottom:0;width:2px;background:#dceee4;}
+.flow-step:last-child::before{display:none;}
+.flow-num{
+  flex:0 0 32px;height:32px;border-radius:50%;background:var(--green);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;z-index:1;
+}
+.flow-body .ft{font-size:14.5px;font-weight:800;margin:2px 0 3px;}
+.flow-body .fd{font-size:12.5px;color:var(--text-sub);margin:0;}
+
+/* ---------- FAQ ---------- */
+.faq-item{border-bottom:1px solid var(--line);padding:13px 0;}
+.faq-item:first-child{padding-top:2px;}
+.faq-item:last-child{border-bottom:none;padding-bottom:2px;}
+.faq-q{font-size:14.5px;font-weight:700;display:flex;gap:8px;align-items:flex-start;margin:0 0 5px;}
+.faq-q .q{color:var(--green);flex:0 0 auto;}
+.faq-a{font-size:13.5px;color:#54595e;margin:0;padding-left:20px;}
+
+/* ---------- 联系 ---------- */
+.contact{margin-top:10px;background:linear-gradient(160deg,#197b52,#0f5b3c);color:#fff;padding:26px 20px 30px;text-align:center;}
+.contact h2{font-size:19px;margin:0 0 6px;font-weight:800;}
+.contact p{margin:0 0 18px;font-size:13.5px;opacity:.88;}
+.contact .who{font-size:14px;font-weight:700;margin-bottom:16px;opacity:.95;}
+.contact-btns{display:flex;gap:10px;max-width:420px;margin:0 auto 16px;}
+.contact-btns a{flex:1;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);color:#fff;text-decoration:none;padding:13px;border-radius:12px;font-weight:700;font-size:14.5px;backdrop-filter:blur(4px);}
+.contact-btns a.primary{background:#fff;color:var(--green);border-color:#fff;}
+.contact-list{max-width:420px;margin:0 auto 20px;text-align:left;}
+.cl-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.2);border-radius:13px;padding:13px 15px;margin-bottom:9px;color:#fff;text-decoration:none;}
+.cl-item:active{background:rgba(255,255,255,.18);}
+.cl-ico{font-size:19px;flex:0 0 auto;}
+.cl-text{flex:1;display:flex;flex-direction:column;line-height:1.35;}
+.cl-text b{font-size:14.5px;font-weight:800;}
+.cl-text span{font-size:12.5px;opacity:.82;margin-top:1px;}
+.cl-arrow{font-size:20px;opacity:.55;flex:0 0 auto;}
+.qr-block{display:flex;flex-direction:column;align-items:center;gap:9px;}
+.qr-wrap{display:inline-flex;flex-direction:column;align-items:center;gap:7px;background:#fff;padding:11px;border-radius:14px;}
+.qr-wrap .qr{width:132px;height:132px;background:#fff center/cover no-repeat;background-image:url('qrcode.jpg');display:flex;align-items:center;justify-content:center;color:#aeb3b8;font-size:11px;text-align:center;line-height:1.4;}
+.qr-wrap .qcap{font-size:12px;color:#3a3d41;font-weight:700;}
+.qr-tip{font-size:12px;opacity:.8;margin:0;line-height:1.6;}
+
+.footer{text-align:center;padding:20px 20px 32px;font-size:11.5px;color:#9aa0a6;line-height:1.9;}
+.footer strong{color:#6b7076;}
+
+/* ---------- 底部悬浮联系栏 ---------- */
+.bottom-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;max-width:600px;margin:0 auto;
+  background:rgba(255,255,255,.98);backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+}
+.bottom-bar a{flex:1;text-align:center;padding:12px;border-radius:12px;font-weight:800;font-size:14.5px;text-decoration:none;}
+.bottom-bar a.tel{background:var(--green);color:#fff;box-shadow:0 3px 10px rgba(25,123,82,.25);}
+.bottom-bar a.wx{background:var(--green-light);color:var(--green);}
+
+/* ---------- 底部抽屉 ---------- */
+.drawer-mask{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;opacity:0;pointer-events:none;transition:opacity .25s;}
+.drawer-mask.show{opacity:1;pointer-events:auto;}
+.drawer{
+  position:fixed;left:0;right:0;bottom:0;z-index:101;max-width:600px;margin:0 auto;
+  background:#fff;border-radius:20px 20px 0 0;max-height:86vh;overflow-y:auto;
+  transform:translateY(100%);transition:transform .3s cubic-bezier(.32,.72,0,1);
+  padding-bottom:calc(16px + env(safe-area-inset-bottom));
+}
+.drawer.show{transform:translateY(0);}
+.drawer-handle{width:38px;height:4px;background:#dcdfe2;border-radius:3px;margin:10px auto 6px;}
+.drawer-head{display:flex;align-items:center;gap:10px;padding:8px 20px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2;}
+.drawer-head .dn{font-size:22px;font-weight:800;color:var(--green);}
+.drawer-head .ds{font-size:11px;font-weight:700;color:#fff;background:var(--green-mid);padding:3px 9px;border-radius:20px;}
+.drawer-head .ds.booked{background:var(--blue);}
+.drawer-head .dp{margin-left:auto;text-align:right;line-height:1.15;}
+.drawer-head .dp .p{font-size:21px;font-weight:800;color:var(--accent);}
+.drawer-head .dp .p small{font-size:11px;font-weight:600;}
+.drawer-head .dp .pay{font-size:11px;color:var(--text-sub);display:block;}
+.drawer-close{position:absolute;right:14px;top:10px;width:30px;height:30px;border-radius:50%;background:#f0f1f2;border:none;font-size:16px;color:#6b7076;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.drawer-body{padding:16px 20px 4px;}
+.d-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:13px;}
+.tag{font-size:11.5px;background:#f4f6f7;color:#4a4e52;padding:4px 9px;border-radius:6px;border:1px solid #e9ecee;font-weight:600;}
+.tag.hl{background:#fff7ea;color:#8a5a10;border-color:#f2e3c9;}
+.d-desc{font-size:13.5px;color:#4a4e52;margin:0 0 14px;line-height:1.7;}
+.d-sub{font-size:13px;font-weight:800;color:var(--text);margin:0 0 9px;display:flex;align-items:center;gap:6px;}
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:16px;}
+.media-grid .ph{aspect-ratio:1/1;border-radius:9px;overflow:hidden;position:relative;background:linear-gradient(135deg,#e8eaec,#dadee1);display:flex;align-items:center;justify-content:center;font-size:20px;color:#aeb3b8;}
+.media-grid .ph.video{background:linear-gradient(135deg,#cfd6db,#b9c2c8);color:#fff;}
+.media-grid .ph.video::before{content:"";width:0;height:0;border-left:13px solid rgba(255,255,255,.92);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:3px;}
+.media-grid .ph .cap{position:absolute;bottom:0;left:0;right:0;font-size:10px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.55));padding:9px 6px 3px;text-align:left;}
+.d-actions{display:flex;gap:9px;padding:6px 0 4px;}
+.d-actions a{flex:1;text-align:center;padding:12px;border-radius:11px;font-weight:800;font-size:14px;text-decoration:none;}
+.d-actions a.tel{background:var(--green);color:#fff;}
+.d-actions a.wx{background:var(--green-light);color:var(--green);}
+.video-cta{display:flex;align-items:center;gap:12px;background:#f0faf5;border:1px solid #d4ecdf;border-radius:12px;padding:13px 14px;margin-bottom:16px;cursor:pointer;}
+.video-cta .vc-play{flex:0 0 38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;padding-left:3px;}
+.video-cta b{display:block;font-size:14px;color:#154f36;margin-bottom:2px;}
+.video-cta span{font-size:12.5px;color:#4d7a66;}
+
+@media (max-width:360px){
+  .hero-title{font-size:23px;}
+  .strip .num{font-size:17px;}
+}
+
+/* ==================== 紧凑模式（手机更省空间） ==================== */
+.hero{height:224px;}
+.hero-content{padding:16px 16px 18px;}
+.hero-title{font-size:23px;margin:0 0 5px;}
+.hero-sub{font-size:13px;}
+.hero-badge{font-size:11px;padding:3px 9px;margin-bottom:7px;}
+.quick-nav a{padding:10px 11px;font-size:13px;}
+.strip{padding:12px 6px;}
+.strip .num{font-size:18px;}
+.strip .lbl{font-size:11px;}
+.update-bar{font-size:12px;padding:7px 16px;}
+.section{margin-top:8px;padding:16px 15px;}
+.section-head{gap:7px;margin:0 0 3px;}
+.section-head .ico{width:24px;height:24px;border-radius:8px;font-size:14px;}
+.section-head h2{font-size:16px;}
+.section-desc{font-size:12px;margin:0 0 11px;padding-left:31px;}
+.highlights{gap:8px;margin-top:11px;}
+.hl-card{border-radius:12px;padding:11px 11px;}
+.hl-card .e{font-size:19px;margin-bottom:6px;}
+.hl-card .t{font-size:13.5px;}
+.hl-card .d{font-size:11.5px;line-height:1.45;}
+.hl-card.wide{gap:10px;}
+.photo-mosaic{gap:6px;}
+.photo-mosaic .pm{border-radius:10px;}
+.addr-box{padding-bottom:11px;margin-bottom:11px;margin-top:9px;gap:10px;}
+.addr-box .addr-main{font-size:14px;}
+.addr-box .addr-tip{font-size:12px;}
+.nav-btn{padding:10px;border-radius:10px;font-size:13.5px;}
+.map-preview{margin-top:11px;height:104px;}
+.filter-tabs{gap:6px;margin:10px 0 12px;}
+.filter-tabs button{padding:8px;border-radius:9px;font-size:12.5px;}
+.floor-list{gap:6px;}
+.floor-row{gap:9px;border-radius:10px;}
+.floor-tag{flex:0 0 52px;padding:8px 3px;}
+.floor-tag .f{font-size:15px;}
+.floor-tag .t{font-size:9.5px;}
+.floor-body{padding:7px 8px;gap:5px;}
+.room-chip{font-size:11.5px;padding:5px 7px;border-radius:7px;}
+.legend{gap:13px;margin-top:11px;font-size:11.5px;}
+.facility-grid .cell{padding:10px 11px;font-size:12.5px;gap:7px;}
+.facility-grid .cell .fi{font-size:15px;}
+.promise{border-radius:13px;padding:14px 14px;margin-top:11px;}
+.promise-item{padding:7px 0;gap:9px;}
+.promise-item .pt{font-size:13px;}
+.promise-item .pd{font-size:12px;}
+.flow-step{gap:11px;padding-bottom:14px;}
+.flow-num{flex:0 0 28px;height:28px;font-size:13px;}
+.flow-step::before{left:13px;top:28px;}
+.flow-body .ft{font-size:13.5px;}
+.flow-body .fd{font-size:12px;}
+.faq-item{padding:11px 0;}
+.faq-q{font-size:13.5px;}
+.faq-a{font-size:12.5px;}
+.contact{padding:22px 16px 26px;}
+.contact h2{font-size:17px;}
+.bottom-bar a{padding:12px;font-size:14.5px;}
+.wrap{padding-bottom:70px;}
+
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+<div class="hero-img"></div>
+<div class="hero-mask"></div>
+<div class="hero-content">
+<span class="hero-badge">🏠 房东直租 · 无中介费</span>
+<h1 class="hero-title">沙井村403号小院</h1>
+<p class="hero-sub">整栋7层独院 · 大小单间 · 独立卫浴 · 拎包入住</p>
+</div>
+</div>
+<nav class="quick-nav">
+<a href="#highlights">亮点</a>
+<a href="#photos">实拍</a>
+<a href="#location">位置</a>
+<a href="#floors">房态</a>
+<a href="#amenities">配套</a>
+<a href="#promise">承诺</a>
+<a href="#flow">流程</a>
+<a href="#contact">联系</a>
+</nav>
+<div class="update-bar"><span class="dot"></span><span>房源状态更新于 <b>2026-09-17</b> · 空房信息以实际为准，看房请随时联系</span></div>
+<div class="strip">
+<div class="item"><div class="num">7<small>层</small></div><div class="lbl">整栋独院</div></div>
+<div class="item"><div class="num">46<small>间</small></div><div class="lbl">总房源</div></div>
+<div class="item"><div class="num">2<small>间</small></div><div class="lbl">当前可租</div></div>
+<div class="item"><div class="num">独卫</div><div class="lbl">独立卫生间</div></div>
+</div>
+<div class="section" id="highlights">
+<div class="section-head"><span class="ico">✨</span><h2>房源亮点</h2></div>
+<p class="section-desc">一句话认识我们的小院</p>
+<div class="highlights"><div class="hl-card"><span class="e">🏡</span><p class="t">独栋小院</p><p class="d">7层独门独院，院内安静，进出有门禁</p></div><div class="hl-card"><span class="e">🌿</span><p class="t">闹中取静</p><p class="d">村内生活便利，院子不临街，住着踏实</p></div><div class="hl-card"><span class="e">🚿</span><p class="t">独立卫浴</p><p class="d">每间自带卫生间，不用跟人挤</p></div><div class="hl-card"><span class="e">💰</span><p class="t">房东直租</p><p class="d">无中介费，价格实在，房东自己打理</p></div><div class="hl-card wide"><span class="e">🔑</span><div><p class="t">拎包入住</p><p class="d">房间配空调、热水器、网络</p></div></div><div class="hl-card wide"><span class="e">📹</span><div><p class="t">安全放心</p><p class="d">公共区域有监控和门禁</p></div></div></div>
+</div>
+<div class="section" id="photos">
+<div class="section-head"><span class="ico">📷</span><h2>实拍照片</h2><span class="note">真实拍摄 · 欢迎实地看房</span></div>
+<p class="section-desc">院子门口、院内环境、周边街景</p>
+<div class="photo-mosaic"><div class="pm"><span class="cap">院子门口</span></div><div class="pm"><span class="cap">院内院子</span></div><div class="pm"><span class="cap">楼梯过道</span></div><div class="pm big"><span class="cap">周边街景</span></div></div>
+</div>
+<div class="section" id="location">
+<div class="section-head"><span class="ico">📍</span><h2>位置与交通</h2><span class="note">村内 · 闹中取静</span></div>
+<div class="addr-box"><span class="pin">🏢</span><div><p class="addr-main">西安市雁塔区沙井村北口 403号</p><p class="addr-tip">高德/百度地图搜「怡园宾馆(沙井村北口店)」，我们就在该宾馆隔壁。到村口后可联系房东接引。</p></div></div>
+<div class="nav-btns"><a class="nav-btn primary" href="https://uri.amap.com/marker?name=沙井村403号小院&amp;src=web&amp;coordinate=gaode&amp;callnative=1">🧭 高德地图导航</a><a class="nav-btn ghost" href="#" onclick="copyAddr();return false;">📋 复制地址</a></div>
+<div class="map-preview"><span class="me">📍 西安市雁塔区沙井村北口 403号</span></div>
+</div>
+<div class="section" id="floors">
+<div class="section-head"><span class="ico">🏢</span><h2>楼层房态</h2><span class="note">点房间看详情</span></div>
+<p class="section-desc">房态实时更新 · 点击绿色房间查看照片与详情</p>
+<div class="filter-tabs" id="filterTabs"><button class="active" data-f="all">全部 <span class="n">46</span></button><button data-f="vacant">可租 <span class="n">2</span></button><button data-f="booked">预订 <span class="n">0</span></button></div>
+<div class="floor-list" id="floorList"><div class="floor-row"><div class="floor-tag"><span class="f">7</span><span class="t">7F</span></div><div class="floor-body"><span class="room-chip vacant" data-status="vacant" onclick="openDrawer('701')">701</span><span class="room-chip" data-status="rented">702</span><span class="room-chip" data-status="rented">703</span><span class="room-chip" data-status="rented">704</span><span class="room-chip" data-status="rented">705</span><span class="room-chip" data-status="rented">706</span><span class="room-chip vacant" data-status="vacant" onclick="openDrawer('707')">707</span><span class="room-chip" data-status="rented">708</span></div></div><div class="floor-row"><div class="floor-tag"><span class="f">6</span><span class="t">6F</span></div><div class="floor-body"><span class="room-chip" data-status="rented">601</span><span class="room-chip" data-status="rented">602</span><span class="room-chip" data-status="rented">603</span><span class="room-chip" data-status="rented">604</span><span class="room-chip" data-status="rented">605</span><span class="room-chip" data-status="rented">606</span><span class="room-chip" data-status="rented">607</span><span class="room-chip" data-status="rented">608</span></div></div><div class="floor-row"><div class="floor-tag"><span class="f">5</span><span class="t">5F</span></div><div class="floor-body"><span class="room-chip" data-status="rented">501</span><span class="room-chip" data-status="rented">502</span><span class="room-chip" data-status="rented">503</span><span class="room-chip" data-status="rented">504</span><span class="room-chip" data-status="rented">505</span><span class="room-chip" data-status="rented">506</span><span class="room-chip" data-status="rented">507</span><span class="room-chip" data-status="rented">508</span></div></div><div class="floor-row"><div class="floor-tag"><span class="f">4</span><span class="t">4F</span></div><div class="floor-body"><span class="room-chip" data-status="rented">401</span><span class="room-chip" data-status="rented">402</span><span class="room-chip" data-status="rented">403</span><span class="room-chip" data-status="rented">404</span><span class="room-chip" data-status="rented">405</span><span class="room-chip" data-status="rented">406</span><span class="room-chip" data-status="rented">407</span><span class="room-chip" data-status="rented">408</span></div></div><div class="floor-row"><div class="floor-tag"><span class="f">3</span><span class="t">3F</span></div><div class="floor-body"><span class="room-chip" data-status="rented">301</span><span class="room-chip" data-status="rented">302</span><span class="room-chip" data-status="rented">303</span><span class="room-chip" data-status="rented">304</span><span class="room-chip" data-status="rented">305</span><span class="room-chip" data-status="rented">306</span><span class="room-chip" data-status="rented">307</span></div></div><div class="floor-row"><div class="floor-tag"><span class="f">2</span><span class="t">2F</span></div><div class="floor-body"><span class="room-chip" data-status="rented">201</span><span class="room-chip" data-status="rented">202</span><span class="room-chip" data-status="rented">203</span><span class="room-chip" data-status="rented">204</span><span class="room-chip" data-status="rented">205</span><span class="room-chip" data-status="rented">206</span><span class="room-chip" data-status="rented">207</span></div></div></div>
+<div class="legend"><span><i class="v"></i>可租</span><span><i class="r"></i>已租</span><span><i class="b"></i>已预订</span></div>
+</div>
+<div class="section" id="amenities">
+<div class="section-head"><span class="ico">🛎️</span><h2>配套设施</h2><span class="note">该有的都有</span></div>
+<div class="facility-grid"><div class="cell"><span class="fi">📹</span><span class="ft">楼层监控<span class="fs">公共区域覆盖</span></span></div><div class="cell"><span class="fi">🔐</span><span class="ft">门禁系统<span class="fs">进出需刷卡</span></span></div><div class="cell"><span class="fi">🛁</span><span class="ft">独立卫生间<span class="fs">每间自带</span></span></div><div class="cell"><span class="fi">📶</span><span class="ft">宽带网络<span class="fs">已接入</span></span></div><div class="cell"><span class="fi">❄️</span><span class="ft">空调<span class="fs">部分房间配备</span></span></div><div class="cell"><span class="fi">🔥</span><span class="ft">热水器<span class="fs">部分房间配备</span></span></div><div class="cell"><span class="fi">👕</span><span class="ft">晾晒区<span class="fs">过道 &amp; 楼顶</span></span></div><div class="cell"><span class="fi">🛗</span><span class="ft">电梯<span class="fs">暂无，楼梯上下</span></span></div><div class="cell" style="grid-column:1/-1;"><span class="fi">🚲</span><span class="ft">停车<span class="fs">院内不停车；自行车/电动车停村内，配有充电桩</span></span></div></div>
+</div>
+<div class="section">
+<div class="section-head"><span class="ico">💡</span><h2>水电费用</h2></div>
+<div class="facility-grid" style="grid-template-columns:1fr 1fr;"><div class="cell"><span class="fi">⚡</span><span class="ft">电 1.5元/度<span class="fs">独立电表</span></span></div><div class="cell"><span class="fi">💧</span><span class="ft">水 5元/吨<span class="fs">独立水表</span></span></div></div>
+<p class="price-note">每间房独立水电表，用多少收多少，按实际用量结算，不乱收费。</p>
+</div>
+<div class="section" id="promise">
+<div class="section-head"><span class="ico">🤝</span><h2>房东承诺</h2><span class="note">用心打理 · 住得安心</span></div>
+<div class="promise"><div class="promise-item"><span class="pi">✅</span><div><p class="pt">房源真实，图片实拍</p><p class="pd">页面照片均为本楼实拍，房源信息与实际一致，欢迎实地看房核对。</p></div></div><div class="promise-item"><span class="pi">✅</span><div><p class="pt">房东直租，无中介费</p><p class="pd">本人就是房东，不经过任何中介，不收取额外费用。</p></div></div><div class="promise-item"><span class="pi">✅</span><div><p class="pt">水电实收，不赚差价</p><p class="pd">独立水电表，按实际用量结算，收费标准公开透明。</p></div></div><div class="promise-item"><span class="pi">✅</span><div><p class="pt">问题及时处理</p><p class="pd">公共区域有监控和门禁，设施维修随叫随到，住得踏实。</p></div></div></div>
+</div>
+<div class="section" id="flow">
+<div class="section-head"><span class="ico">📝</span><h2>入住流程</h2><span class="note">四步住进小院</span></div>
+<div class="flow"><div class="flow-step"><div class="flow-num">1</div><div class="flow-body"><p class="ft">联系咨询</p><p class="fd">打电话或加微信，告诉房东你的需求和预算。</p></div></div><div class="flow-step"><div class="flow-num">2</div><div class="flow-body"><p class="ft">预约看房</p><p class="fd">约好时间实地看房，确认楼层、房间和配套。</p></div></div><div class="flow-step"><div class="flow-num">3</div><div class="flow-body"><p class="ft">确认租住</p><p class="fd">谈妥价格和押付方式，登记身份信息、签订租约。</p></div></div><div class="flow-step"><div class="flow-num">4</div><div class="flow-body"><p class="ft">交房入住</p><p class="fd">交钥匙、抄录水电表底数，搬家入住即可。</p></div></div></div>
+</div>
+<div class="section">
+<div class="section-head"><span class="ico">💬</span><h2>租客常见问题</h2></div>
+<div class="faq-item"><p class="faq-q"><span class="q">Q</span>水电怎么算？</p><p class="faq-a">每间房独立水电表，电 1.5 元/度、水 5 元/吨，用多少收多少，按实际用量结算。</p></div><div class="faq-item"><p class="faq-q"><span class="q">Q</span>押付方式？</p><p class="faq-a">押一付一，具体可与房东协商。</p></div><div class="faq-item"><p class="faq-q"><span class="q">Q</span>能停车吗？</p><p class="faq-a">院内不便停车；自行车、电动车可以停在村子里，村内配有充电桩。</p></div><div class="faq-item"><p class="faq-q"><span class="q">Q</span>房间有独立卫生间吗？</p><p class="faq-a">有，每间房都带独立卫生间。空调、热水器部分房间配备，看房时可确认。</p></div><div class="faq-item"><p class="faq-q"><span class="q">Q</span>多久能入住？</p><p class="faq-a">空房随时可看、随时可入住，加微信或打电话约时间即可。</p></div>
+</div>
+<div class="contact" id="contact">
+<h2>联系房东看房</h2>
+<p>直租无中介费 · 欢迎实地看房</p>
+<div class="who">👩 赵女士（房东本人）</div>
+<div class="contact-list">
+<a class="cl-item" href="tel:13379062987"><span class="cl-ico">📞</span><span class="cl-text"><b>电话咨询</b><span>13379062987</span></span><span class="cl-arrow">›</span></a>
+<div class="cl-item" onclick="showWx();"><span class="cl-ico">💬</span><span class="cl-text"><b>微信咨询</b><span>微信号同手机号</span></span><span class="cl-arrow">›</span></div>
+<div class="cl-item"><span class="cl-ico">🕐</span><span class="cl-text"><b>看房时间</b><span>每天 8:00 - 20:00（可提前预约）</span></span></div>
+<div class="cl-item"><span class="cl-ico">📍</span><span class="cl-text"><b>看房地址</b><span>西安市雁塔区沙井村北口 403号</span></span></div>
+</div>
+<div class="qr-block"><div class="qr-wrap"><div class="qr">微信二维码<br>（未上传）</div><span class="qcap">微信扫码添加房东</span></div><p class="qr-tip">长按识别 / 扫码添加微信<br>备注“看房”更快通过</p></div>
+</div>
+<div class="footer"><strong>沙井村403号小院</strong><br>西安市雁塔区沙井村北口403号 · 怡园宾馆隔壁<br><span id="footer-date"></span></div>
+</div>
+<div class="bottom-bar"><a class="tel" href="tel:13379062987">📞 直接打电话</a><a class="wx" href="#" onclick="showWx();return false;">💬 加微信看房</a></div>
+<div class="drawer-mask" id="drawerMask" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer"><div class="drawer-handle"></div><button class="drawer-close" onclick="closeDrawer()">✕</button><div class="drawer-head" id="drawerHead"></div><div class="drawer-body" id="drawerBody"></div></div>
+<script>
+var ROOMS={"701":{"price":700,"pay":"押一付一","tags":["朝南·采光好","带小阳台·可做饭","独立卫生间","空调","热水器","7楼"],"desc":"位于7楼，靠近院子门口一侧，朝南，光线好、通风好。带一个小阳台，可以做饭。配空调、热水器，独立卫生间，拎包即可入住。"},"707":{"price":650,"pay":"押一付一","tags":["安静·不临街","无遮挡·通风好","独立卫生间","空调","热水器","7楼"],"desc":"位于7楼院子尾部，不临街，安静。采光通风好、无遮挡。配空调、热水器，独立卫生间，适合对安静有要求的租客。"}};
+var STATUS={"701":"vacant","707":"vacant"};
+var FLOORS=[];
+
+
+/* ============================================================
+   房间数据：以后更新房源只需改这里
+   每层 rooms 里，每个房间可写：
+     {no:"701", status:"vacant"}   // 可租
+     {no:"702", status:"rented"}   // 已租（默认）
+     {no:"703", status:"booked"}   // 已预订
+   可租/预订的房间建议补详情（点开抽屉显示）：
+     price:700, pay:"押一付一",
+     tags:["朝南","带阳台"],  desc:"...",
+     media:["房间全景","小阳台","独立卫浴"],  // 有视频的用 {t:"视频",v:true}
+     detail:true
+============================================================ */
+
+
+/* 楼层结构（房号自动按规则生成，状态从 ROOMS 取） */
+
+
+function statusOf(no){ return STATUS[no] || "rented"; }
+
+function renderFloors(){
+  var box=document.getElementById('floorList');
+  var html='';
+  for(var i=0;i<FLOORS.length;i++){
+    var f=FLOORS[i];
+    html+='<div class="floor-row'+(f.special?' floor-special':'')+'">';
+    html+='<div class="floor-tag"><span class="f">'+f.floor+'</span><span class="t">'+(f.tag||'')+'</span></div>';
+    html+='<div class="floor-body">';
+    if(f.rooms && f.rooms.length){
+      for(var j=0;j<f.rooms.length;j++){
+        var no=f.rooms[j], st=statusOf(no);
+        var cls = st==='vacant'?' vacant' : (st==='booked'?' booked':'');
+        var click = st==='rented' ? '' : ' onclick="openDrawer(\''+no+'\')"';
+        html+='<span class="room-chip'+cls+'" data-status="'+st+'"'+click+'>'+no+'</span>';
+      }
+    }
+    if(f.note) html+='<span class="floor-note">'+f.note+'</span>';
+    html+='</div></div>';
+  }
+  box.innerHTML=html;
+}
+
+/* 筛选 */
+function applyFilter(f){
+  var chips=document.querySelectorAll('#floorList .room-chip');
+  for(var i=0;i<chips.length;i++){
+    var st=chips[i].getAttribute('data-status');
+    var show = (f==='all') ? true : (st===f);
+    chips[i].classList.toggle('hidden', !show);
+  }
+  var rows=document.querySelectorAll('#floorList .floor-row');
+  for(var k=0;k<rows.length;k++){
+    var vis=rows[k].querySelectorAll('.room-chip:not(.hidden)').length;
+    var isShop=rows[k].classList.contains('floor-special');
+    rows[k].style.display = (vis===0 && !isShop) ? 'none' : '';
+  }
+  var btns=document.querySelectorAll('#filterTabs button');
+  for(var b=0;b<btns.length;b++){ btns[b].classList.toggle('active', btns[b].getAttribute('data-f')===f); }
+}
+document.getElementById('filterTabs').addEventListener('click',function(e){
+  var btn=e.target.closest('button'); if(!btn) return;
+  applyFilter(btn.getAttribute('data-f'));
+});
+
+/* 统计 */
+function updateCounts(){ if(!document.getElementById('cntAll')) return; if(!document.getElementById('cntAll')) return;
+  var vac=0,book=0,tot=0;
+  for(var i=0;i<FLOORS.length;i++){
+    var rs=FLOORS[i].rooms||[];
+    for(var j=0;j<rs.length;j++){ tot++; var s=statusOf(rs[j]); if(s==='vacant')vac++; if(s==='booked')book++; }
+  }
+  document.getElementById('cntAll').textContent=tot;
+  document.getElementById('cntVacant').textContent=vac;
+  document.getElementById('cntBooked').textContent=book;
+  var vc=document.getElementById('vacantCount');
+  if(vc) vc.innerHTML=vac+'<small>间</small>';
+}
+
+/* 抽屉 */
+function openDrawer(no){
+  var r=ROOMS[no]; if(!r) return;
+  var st=STATUS[no]||'rented';
+  var stText = st==='vacant'?'可租':(st==='booked'?'已预订':'已租');
+  var stCls = st==='booked'?' booked':'';
+  var head='<span class="dn">'+no+'</span><span class="ds'+stCls+'">'+stText+'</span>';
+  if(r.price) head+='<span class="dp"><span class="p">¥'+r.price+'<small>/月</small></span><span class="pay">'+(r.pay||'')+'</span></span>';
+  document.getElementById('drawerHead').innerHTML=head;
+
+  var body='';
+  if(r.tags && r.tags.length){
+    body+='<div class="d-tags">'+r.tags.map(function(t,i){return '<span class="tag'+(i<2?' hl':'')+'">'+t+'</span>';}).join('')+'</div>';
+  }
+  if(r.desc) body+='<p class="d-desc">'+r.desc+'</p>';
+  if(r.imgs && r.imgs.length){
+    body+='<p class="d-sub">📷 房间实拍</p><div class="media-grid">';
+    for(var k=0;k<r.imgs.length;k++){
+      body+='<div class="ph" style="background-image:url(\''+r.imgs[k]+'\');background-size:cover;background-position:center;"></div>';
+    }
+    body+='</div>';
+    body+='<div class="video-cta" onclick="showWx()"><span class="vc-play">▶</span><div><b>想看房间视频？</b><span>点这里加微信，房东直接发给你</span></div></div>';
+  } else if(r.media && r.media.length){
+    body+='<p class="d-sub">📷 房间实拍</p><div class="media-grid">';
+    for(var i=0;i<r.media.length;i++){
+      var m=r.media[i];
+      if(typeof m==='string'){ body+='<div class="ph"><span class="cap">'+m+'</span></div>'; }
+      else { body+='<div class="ph video"><span class="cap">'+m.t+'</span></div>'; }
+    }
+    body+='</div>';
+    body+='<div class="video-cta" onclick="showWx()"><span class="vc-play">▶</span><div><b>想看房间视频？</b><span>点这里加微信，房东直接发给你</span></div></div>';
+  } else {
+    body+='<p class="d-desc" style="color:#9aa0a6;">照片/视频整理中，可加微信看实时视频 📹</p>';
+  }
+  body+='<div class="d-actions"><a class="tel" href="tel:13379062987">📞 电话咨询</a><a class="wx" href="#" onclick="showWx();return false;">💬 加微信看房</a></div>';
+  document.getElementById('drawerBody').innerHTML=body;
+
+  document.getElementById('drawerMask').classList.add('show');
+  document.getElementById('drawer').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeDrawer(){
+  document.getElementById('drawerMask').classList.remove('show');
+  document.getElementById('drawer').classList.remove('show');
+  document.body.style.overflow='';
+}
+
+function copyAddr(){
+  var t='西安市雁塔区沙井村北口403号（怡园宾馆隔壁）';
+  var ok=false;
+  try{
+    var ta=document.createElement('textarea');
+    ta.value=t;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    ok=document.execCommand('copy');
+    document.body.removeChild(ta);
+  }catch(e){}
+  alert(ok?'地址已复制，可直接粘贴给司机 🚕':'请手动记录：'+t);
+}
+function showWx(){
+  alert('微信同手机号：13379062987\n在微信里搜索添加，或直接拨打 13379062987 📞');
+}
+
+(function(){
+  var d=new Date();
+  var s=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  document.getElementById('footer-date').textContent='本页更新于 '+s;
+})();
+
+</script>
+</body>
+</html>
