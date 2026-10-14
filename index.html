@@ -2,8 +2,15 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>沙井村403号小院 · 房东直租</title>
+<meta name="description" content="西安雁塔区沙井村·整栋7层独院·独立卫浴·房东直租无中介费·押一付一">
+<meta property="og:type" content="website">
+<meta property="og:title" content="沙井村403号小院｜独立卫浴 · 房东直租">
+<meta property="og:description" content="西安雁塔区沙井村北口，7层独院，每间独立卫生间，押一付一，无中介费。现有空房，随时可看。">
+<meta property="og:image" content="https://shajing403-d4g4cnd3z30848c75.api.tcloudbasegateway.com/v1/storages/object/photos/site/1791771409781-s4mxje.jpg">
+<meta name="theme-color" content="#197b52">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23197b52'/><text y='24' x='16' text-anchor='middle' font-size='18'>🏠</text></svg>">
 <style>
 
 
@@ -242,7 +249,7 @@ img{max-width:100%;display:block;}
 .drawer-mask.show{opacity:1;pointer-events:auto;}
 .drawer{
   position:fixed;left:0;right:0;bottom:0;z-index:101;max-width:600px;margin:0 auto;
-  background:#fff;border-radius:20px 20px 0 0;max-height:86vh;overflow-y:auto;
+  background:#fff;border-radius:20px 20px 0 0;max-height:86vh;overflow-y:auto;overscroll-behavior:contain;
   transform:translateY(100%);transition:transform .3s cubic-bezier(.32,.72,0,1);
   padding-bottom:calc(16px + env(safe-area-inset-bottom));
 }
@@ -341,6 +348,78 @@ img{max-width:100%;display:block;}
 .wrap{padding-bottom:70px;}
 
 
+/* ==================== 改版新增（v2） ==================== */
+/* 首屏价格 + 空房呼吸灯 */
+.vac-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(39,163,102,.95);color:#fff;
+  font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:20px;margin-bottom:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);}
+.vac-pill .dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:vacpulse 1.8s infinite;}
+@keyframes vacpulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.8);}70%{box-shadow:0 0 0 7px rgba(255,255,255,0);}100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}}
+.price-band{display:flex;align-items:baseline;gap:3px;flex-wrap:wrap;text-shadow:0 2px 10px rgba(0,0,0,.45);margin-bottom:9px;}
+.price-band .cur{font-size:17px;font-weight:700;}
+.price-band .num{font-size:40px;font-weight:900;letter-spacing:-1.8px;line-height:1;}
+.price-band .unit{font-size:13px;opacity:.92;margin-right:4px;}
+.price-band .pay{font-size:11.5px;font-weight:700;background:rgba(255,255,255,.20);border:1px solid rgba(255,255,255,.42);padding:3px 9px;border-radius:20px;}
+
+/* “现在就能租”卡片 */
+.vac-list{display:flex;flex-direction:column;gap:12px;margin-top:12px;}
+.vac-card{border:1px solid #d4ecdf;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 3px 14px rgba(16,24,40,.07);}
+.vac-card .cover{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;
+  background:linear-gradient(100deg,#e8eaec 30%,#f3f5f6 50%,#e8eaec 70%);background-size:200% 100%;animation:shimmer 1.4s infinite linear;}
+@keyframes shimmer{0%{background-position:100% 0;}100%{background-position:-100% 0;}}
+.vac-card .cover.loaded{animation:none;background:none;}
+.vac-card .cover img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s;}
+.vac-card .cover img.ok{opacity:1;}
+.vac-card .cover .noimg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#9aa0a6;font-size:13px;}
+.vac-card .cover .no{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);color:#fff;font-size:12.5px;font-weight:800;padding:4px 11px;border-radius:20px;z-index:2;}
+.vac-card .cover .cnt{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.52);color:#fff;font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600;z-index:2;}
+.vac-card .body{padding:12px 13px 13px;}
+.vac-card .row1{display:flex;align-items:baseline;gap:5px;margin-bottom:8px;flex-wrap:wrap;}
+.vac-card .price{font-size:25px;font-weight:900;color:var(--accent);letter-spacing:-.8px;line-height:1;}
+.vac-card .price small{font-size:12px;font-weight:700;}
+.vac-card .pay{font-size:11.5px;color:var(--text-sub);background:#f4f6f7;border:1px solid #e9ecee;padding:2px 8px;border-radius:6px;font-weight:600;margin-left:auto;}
+.vac-card .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:11px;}
+.vac-card .btns{display:flex;gap:8px;}
+.vac-card .btns a{flex:1;text-align:center;padding:11px;border-radius:11px;font-weight:800;font-size:14px;text-decoration:none;}
+.vac-card .btns a.tel{background:var(--green);color:#fff;}
+.vac-card .btns a.wx{background:var(--green-light);color:var(--green);}
+
+/* 照片墙骨架屏 */
+.photo-mosaic .pm.loaded{animation:none;background:none;}
+.photo-mosaic .pm img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s;}
+.photo-mosaic .pm img.ok{opacity:1;}
+.photo-mosaic .pm:first-child::before{content:none;}
+
+/* 周边配套 */
+.poi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:12px;}
+.poi-grid .cell{background:#fff;padding:11px 12px;display:flex;align-items:center;gap:8px;font-size:13px;}
+.poi-grid .cell .fi{font-size:16px;flex:0 0 auto;}
+.poi-grid .cell .ft{font-weight:700;line-height:1.3;}
+.poi-grid .cell .fs{font-size:11px;color:var(--text-sub);display:block;font-weight:400;}
+
+/* 已租降噪 / 可租提亮 / 空状态 */
+.room-chip{background:#f7f8f9;color:#b9bcc0;border-color:#eef0f1;}
+.room-chip.vacant{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 2px 8px rgba(25,123,82,.32);transform:scale(1.04);}
+.room-chip.vacant::after{content:" 空";font-size:10px;font-weight:600;opacity:1;}
+.room-chip.booked{background:#eaf1fb;color:var(--blue);border-color:#c9dcf6;font-weight:700;}
+.legend i.v{background:var(--green);border:1px solid var(--green);}
+.legend i.r{background:#f7f8f9;border:1px solid #eef0f1;}
+.empty-state{text-align:center;padding:26px 10px;color:var(--text-sub);font-size:13px;line-height:1.9;}
+.empty-state .e{font-size:30px;display:block;margin-bottom:6px;opacity:.5;}
+
+/* 微信弹窗（替代 alert） */
+.modal{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:22px;backdrop-filter:blur(2px);}
+.modal.show{display:flex;}
+.modal-box{background:#fff;border-radius:20px;padding:20px 18px 18px;width:100%;max-width:330px;text-align:center;position:relative;animation:pop .22s cubic-bezier(.32,.72,0,1);}
+@keyframes pop{from{transform:scale(.94);opacity:0;}to{transform:scale(1);opacity:1;}}
+.modal-box h3{font-size:16px;margin:0 0 5px;font-weight:800;}
+.modal-box .sub{font-size:12px;color:var(--text-sub);margin:0 0 14px;}
+.modal-box .qr{width:190px;height:190px;margin:0 auto 12px;border-radius:12px;background:repeating-linear-gradient(45deg,#f3f5f6,#f3f5f6 9px,#e9edef 9px,#e9edef 18px);display:flex;align-items:center;justify-content:center;font-size:12px;color:#8a9096;line-height:1.6;padding:14px;text-align:center;background-size:cover;background-position:center;}
+.modal-box .wxid{display:flex;align-items:center;justify-content:center;gap:8px;background:#f4f6f7;border:1px solid var(--line);border-radius:11px;padding:11px;margin-bottom:12px;}
+.modal-box .wxid b{font-size:15px;font-weight:800;letter-spacing:.5px;}
+.modal-box .wxid button{background:var(--green);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;}
+.modal-box .close{position:absolute;right:12px;top:12px;width:28px;height:28px;border-radius:50%;background:#f0f1f2;border:none;font-size:15px;color:#6b7076;cursor:pointer;line-height:1;}
+button.cl-item{width:100%;font-family:inherit;font-size:inherit;text-align:left;cursor:pointer;border:1px solid rgba(255,255,255,.2);}
 </style>
 </head>
 <body>
@@ -351,11 +430,13 @@ img{max-width:100%;display:block;}
 <div class="hero-content">
 <span class="hero-badge">🏠 房东直租 · 无中介费</span>
 <h1 class="hero-title">沙井村403号小院</h1>
-<p class="hero-sub">整栋7层独院 · 大小单间 · 独立卫浴 · 拎包入住</p>
+<div class="vac-pill"><span class="dot"></span>现在有 <b id="vacPill">2</b> 间空房，随时可看</div>
+<div class="price-band" id="priceBand"><span class="cur">¥</span><span class="num">550</span><span class="unit">起/月</span><span class="pay">押一付一</span></div>
+<p class="hero-sub">整栋7层独院 · 每间独立卫生间 · 空调热水器 · 拎包入住</p>
 </div>
 </div>
 <nav class="quick-nav">
-<a href="#highlights">亮点</a>
+<a href="#vacant">空房</a>
 <a href="#photos">实拍</a>
 <a href="#location">位置</a>
 <a href="#floors">房态</a>
@@ -364,12 +445,17 @@ img{max-width:100%;display:block;}
 <a href="#flow">流程</a>
 <a href="#contact">联系</a>
 </nav>
-<div class="update-bar"><span class="dot"></span><span>房源状态更新于 <b>2026-09-17</b> · 空房信息以实际为准，看房请随时联系</span></div>
+<div class="update-bar" id="updBar"><span class="dot"></span><span>房源状态更新于 <b id="updText">2026-10-07</b> · 空房信息以实际为准，看房请随时联系</span></div>
 <div class="strip">
 <div class="item"><div class="num">7<small>层</small></div><div class="lbl">整栋独院</div></div>
-<div class="item"><div class="num">46<small>间</small></div><div class="lbl">总房源</div></div>
-<div class="item"><div class="num">2<small>间</small></div><div class="lbl">当前可租</div></div>
+<div class="item heat"><div class="num" id="vacantCount">2<small>间</small></div><div class="lbl">当前可租</div></div>
+<div class="item"><div class="num">押一付一</div><div class="lbl">付款方式</div></div>
 <div class="item"><div class="num">独卫</div><div class="lbl">独立卫生间</div></div>
+</div>
+<div class="section" id="vacant">
+<div class="section-head"><span class="ico">🔑</span><h2>现在就能租</h2><span class="note" id="vacCountNote">共 2 间</span></div>
+<p class="section-desc">点图片看房间实拍大图 · 可直接打电话或加微信约看</p>
+<div class="vac-list" id="vacantList"></div>
 </div>
 <div class="section" id="highlights">
 <div class="section-head"><span class="ico">✨</span><h2>房源亮点</h2></div>
@@ -379,18 +465,20 @@ img{max-width:100%;display:block;}
 <div class="section" id="photos">
 <div class="section-head"><span class="ico">📷</span><h2>实拍照片</h2><span class="note">真实拍摄 · 欢迎实地看房</span></div>
 <p class="section-desc">院子门口、院内环境、周边街景</p>
-<div class="photo-mosaic"><div class="pm"><span class="cap">院子门口</span></div><div class="pm"><span class="cap">院内院子</span></div><div class="pm"><span class="cap">楼梯过道</span></div><div class="pm big"><span class="cap">周边街景</span></div></div>
+<div class="photo-mosaic"><div class="pm"><img loading="lazy" alt="院子门口" src=""><span class="cap">院子门口</span></div><div class="pm"><img loading="lazy" alt="院内院子" src=""><span class="cap">院内院子</span></div><div class="pm"><img loading="lazy" alt="楼梯过道" src=""><span class="cap">楼梯过道</span></div><div class="pm big"><img loading="lazy" alt="周边街景" src=""><span class="cap">周边街景</span></div></div>
 </div>
 <div class="section" id="location">
 <div class="section-head"><span class="ico">📍</span><h2>位置与交通</h2><span class="note">村内 · 闹中取静</span></div>
 <div class="addr-box"><span class="pin">🏢</span><div><p class="addr-main">西安市雁塔区沙井村北口 403号</p><p class="addr-tip">高德/百度地图搜「怡园宾馆(沙井村北口店)」，我们就在该宾馆隔壁。到村口后可联系房东接引。</p></div></div>
-<div class="nav-btns"><a class="nav-btn primary" href="https://uri.amap.com/marker?name=沙井村403号小院&amp;src=web&amp;coordinate=gaode&amp;callnative=1">🧭 高德地图导航</a><a class="nav-btn ghost" href="#" onclick="copyAddr();return false;">📋 复制地址</a></div>
-<div class="map-preview"><span class="me">📍 西安市雁塔区沙井村北口 403号</span></div>
+<div class="nav-btns"><a class="nav-btn primary" href="#" onclick="openNav();return false;">🧭 打开地图导航</a><button class="nav-btn ghost" onclick="copyAddr();return false;">📋 复制地址</button></div>
+<div class="section-head" style="margin-top:18px;"><span class="ico">🏪</span><h2>出门就能到</h2><span class="note">生活配套</span></div>
+<p class="section-desc">地铁、公交、超市、吃饭——决定要不要来看房的关键信息（请联系房东补充）</p>
+<div class="poi-grid" id="poiGrid"><div class="cell"><span class="fi">🚇</span><span class="ft">地铁<span class="fs">待填写：最近站名 + 步行分钟</span></span></div><div class="cell"><span class="fi">🚌</span><span class="ft">公交<span class="fs">待填写：村口线路</span></span></div><div class="cell"><span class="fi">🏪</span><span class="ft">便利店<span class="fs">待填写</span></span></div><div class="cell"><span class="fi">🍜</span><span class="ft">吃饭<span class="fs">待填写：小吃街 / 快餐</span></span></div><div class="cell"><span class="fi">🛒</span><span class="ft">超市菜场<span class="fs">待填写</span></span></div><div class="cell"><span class="fi">📦</span><span class="ft">快递驿站<span class="fs">待填写</span></span></div></div>
 </div>
 <div class="section" id="floors">
-<div class="section-head"><span class="ico">🏢</span><h2>楼层房态</h2><span class="note">点房间看详情</span></div>
-<p class="section-desc">房态实时更新 · 点击绿色房间查看照片与详情</p>
-<div class="filter-tabs" id="filterTabs"><button class="active" data-f="all">全部 <span class="n">46</span></button><button data-f="vacant">可租 <span class="n">2</span></button><button data-f="booked">预订 <span class="n">0</span></button></div>
+<div class="section-head"><span class="ico">🏢</span><h2>整栋房态</h2><span class="note">点绿色房间看详情</span></div>
+<p class="section-desc"><b>全楼 47 间 · 仅剩 <span id="vacantInline">2</span> 间空置</b> · 其余在租（房态由房东实时更新）</p>
+<div class="filter-tabs" id="filterTabs"><button class="active" data-f="all">全部 <span class="n" id="cntAll">46</span></button><button data-f="vacant">可租 <span class="n" id="cntVacant">2</span></button><button data-f="booked">预订 <span class="n" id="cntBooked">0</span></button></div>
 <div class="floor-list" id="floorList"><div class="floor-row"><div class="floor-tag"><span class="f">7</span><span class="t">7F</span></div><div class="floor-body"><span class="room-chip vacant" data-status="vacant" onclick="openDrawer('701')">701</span><span class="room-chip" data-status="rented">702</span><span class="room-chip" data-status="rented">703</span><span class="room-chip" data-status="rented">704</span><span class="room-chip" data-status="rented">705</span><span class="room-chip" data-status="rented">706</span><span class="room-chip vacant" data-status="vacant" onclick="openDrawer('707')">707</span><span class="room-chip" data-status="rented">708</span></div></div><div class="floor-row"><div class="floor-tag"><span class="f">6</span><span class="t">6F</span></div><div class="floor-body"><span class="room-chip" data-status="rented">601</span><span class="room-chip" data-status="rented">602</span><span class="room-chip" data-status="rented">603</span><span class="room-chip" data-status="rented">604</span><span class="room-chip" data-status="rented">605</span><span class="room-chip" data-status="rented">606</span><span class="room-chip" data-status="rented">607</span><span class="room-chip" data-status="rented">608</span></div></div><div class="floor-row"><div class="floor-tag"><span class="f">5</span><span class="t">5F</span></div><div class="floor-body"><span class="room-chip" data-status="rented">501</span><span class="room-chip" data-status="rented">502</span><span class="room-chip" data-status="rented">503</span><span class="room-chip" data-status="rented">504</span><span class="room-chip" data-status="rented">505</span><span class="room-chip" data-status="rented">506</span><span class="room-chip" data-status="rented">507</span><span class="room-chip" data-status="rented">508</span></div></div><div class="floor-row"><div class="floor-tag"><span class="f">4</span><span class="t">4F</span></div><div class="floor-body"><span class="room-chip" data-status="rented">401</span><span class="room-chip" data-status="rented">402</span><span class="room-chip" data-status="rented">403</span><span class="room-chip" data-status="rented">404</span><span class="room-chip" data-status="rented">405</span><span class="room-chip" data-status="rented">406</span><span class="room-chip" data-status="rented">407</span><span class="room-chip" data-status="rented">408</span></div></div><div class="floor-row"><div class="floor-tag"><span class="f">3</span><span class="t">3F</span></div><div class="floor-body"><span class="room-chip" data-status="rented">301</span><span class="room-chip" data-status="rented">302</span><span class="room-chip" data-status="rented">303</span><span class="room-chip" data-status="rented">304</span><span class="room-chip" data-status="rented">305</span><span class="room-chip" data-status="rented">306</span><span class="room-chip" data-status="rented">307</span></div></div><div class="floor-row"><div class="floor-tag"><span class="f">2</span><span class="t">2F</span></div><div class="floor-body"><span class="room-chip" data-status="rented">201</span><span class="room-chip" data-status="rented">202</span><span class="room-chip" data-status="rented">203</span><span class="room-chip" data-status="rented">204</span><span class="room-chip" data-status="rented">205</span><span class="room-chip" data-status="rented">206</span><span class="room-chip" data-status="rented">207</span></div></div></div>
 <div class="legend"><span><i class="v"></i>可租</span><span><i class="r"></i>已租</span><span><i class="b"></i>已预订</span></div>
 </div>
@@ -421,15 +509,25 @@ img{max-width:100%;display:block;}
 <div class="who">👩 赵女士（房东本人）</div>
 <div class="contact-list">
 <a class="cl-item" href="tel:13379062987"><span class="cl-ico">📞</span><span class="cl-text"><b>电话咨询</b><span>13379062987</span></span><span class="cl-arrow">›</span></a>
-<div class="cl-item" onclick="showWx();"><span class="cl-ico">💬</span><span class="cl-text"><b>微信咨询</b><span>微信号同手机号</span></span><span class="cl-arrow">›</span></div>
+<button class="cl-item" onclick="showWx();"><span class="cl-ico">💬</span><span class="cl-text"><b>微信咨询</b><span>点一下弹出二维码，长按即可添加</span></span><span class="cl-arrow">›</span></button>
 <div class="cl-item"><span class="cl-ico">🕐</span><span class="cl-text"><b>看房时间</b><span>每天 8:00 - 20:00（可提前预约）</span></span></div>
 <div class="cl-item"><span class="cl-ico">📍</span><span class="cl-text"><b>看房地址</b><span>西安市雁塔区沙井村北口 403号</span></span></div>
 </div>
-<div class="qr-block"><div class="qr-wrap"><div class="qr">微信二维码<br>（未上传）</div><span class="qcap">微信扫码添加房东</span></div><p class="qr-tip">长按识别 / 扫码添加微信<br>备注“看房”更快通过</p></div>
+<div class="qr-block"><div class="qr-wrap"><div class="qr" id="qrBox">微信二维码<br>（后台「网站照片」上传后显示）</div><span class="qcap">长按识别 / 扫码添加</span></div><p class="qr-tip">长按识别 / 扫码添加微信<br>备注“看房”更快通过</p></div>
 </div>
 <div class="footer"><strong>沙井村403号小院</strong><br>西安市雁塔区沙井村北口403号 · 怡园宾馆隔壁<br><span id="footer-date"></span></div>
 </div>
-<div class="bottom-bar"><a class="tel" href="tel:13379062987">📞 直接打电话</a><a class="wx" href="#" onclick="showWx();return false;">💬 加微信看房</a></div>
+<div class="bottom-bar"><a class="tel" href="tel:13379062987">📞 直接打电话</a><button class="wx" onclick="showWx();return false;">💬 加微信看房</button></div>
+<div class="modal" id="wxModal" onclick="if(event.target===this)closeWx()">
+<div class="modal-box">
+<button class="close" onclick="closeWx()">✕</button>
+<h3>加微信看房</h3>
+<p class="sub">备注「看房」更快通过 · 可发房间视频</p>
+<div class="qr" id="wxQrBox">微信二维码<br>（后台「网站照片」上传后显示）</div>
+<div class="wxid"><b id="wxidText">13379062987</b><button onclick="copyWx()">复制</button></div>
+<p class="sub" style="margin:0;">微信号与手机号相同</p>
+</div>
+</div>
 <div class="drawer-mask" id="drawerMask" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer"><div class="drawer-handle"></div><button class="drawer-close" onclick="closeDrawer()">✕</button><div class="drawer-head" id="drawerHead"></div><div class="drawer-body" id="drawerBody"></div></div>
 <script>
@@ -488,11 +586,20 @@ function applyFilter(f){
     chips[i].classList.toggle('hidden', !show);
   }
   var rows=document.querySelectorAll('#floorList .floor-row');
+  var any=false;
   for(var k=0;k<rows.length;k++){
     var vis=rows[k].querySelectorAll('.room-chip:not(.hidden)').length;
     var isShop=rows[k].classList.contains('floor-special');
     rows[k].style.display = (vis===0 && !isShop) ? 'none' : '';
+    if(vis) any=true;
   }
+  var es=document.getElementById('floorEmpty');
+  if(!any){
+    if(!es){ es=document.createElement('div'); es.id='floorEmpty'; es.className='empty-state';
+      es.innerHTML='<span class="e">🏠</span>暂时没有这个状态的房间<br>可租房间会实时更新，欢迎加微信留个意向';
+      document.getElementById('floorList').after(es); }
+    es.style.display='block';
+  } else if(es){ es.style.display='none'; }
   var btns=document.querySelectorAll('#filterTabs button');
   for(var b=0;b<btns.length;b++){ btns[b].classList.toggle('active', btns[b].getAttribute('data-f')===f); }
 }
@@ -502,22 +609,57 @@ document.getElementById('filterTabs').addEventListener('click',function(e){
 });
 
 /* 统计 */
-function updateCounts(){ if(!document.getElementById('cntAll')) return; if(!document.getElementById('cntAll')) return;
+function updateCounts(){
   var vac=0,book=0,tot=0;
   for(var i=0;i<FLOORS.length;i++){
     var rs=FLOORS[i].rooms||[];
     for(var j=0;j<rs.length;j++){ tot++; var s=statusOf(rs[j]); if(s==='vacant')vac++; if(s==='booked')book++; }
   }
-  document.getElementById('cntAll').textContent=tot;
-  document.getElementById('cntVacant').textContent=vac;
-  document.getElementById('cntBooked').textContent=book;
+  var eAll=document.getElementById('cntAll'); if(eAll) eAll.textContent=tot;
+  var eVac=document.getElementById('cntVacant'); if(eVac) eVac.textContent=vac;
+  var eBook=document.getElementById('cntBooked'); if(eBook) eBook.textContent=book;
   var vc=document.getElementById('vacantCount');
   if(vc) vc.innerHTML=vac+'<small>间</small>';
+  var vp=document.getElementById('vacPill'); if(vp) vp.textContent=vac;
+  var vi=document.getElementById('vacantInline'); if(vi) vi.textContent=vac;
 }
+
+/* 图片加载完成：渐显并移除骨架屏 */
+function imgOK(el){ el.classList.add('ok'); var w=el.closest('.pm,.cover'); if(w) w.classList.add('loaded'); }
+
+/* 历史栈：让返回键分步返回（详情→主页），而不是直接关网页 */
+var __layerStack=[]; /* 记录打开了哪些浮层，用于返回键分步关闭 */
+function pushLayer(kind){
+  try{
+    __layerStack.push(kind);
+    history.pushState({sjLayer:__layerStack.length},'');
+  }catch(e){}
+}
+/* 用户点了网页内的关闭按钮：直接请求返回一步，由 popstate 统一弹栈 */
+function popLayerSilent(){
+  try{ history.back(); }catch(e){}
+}
+window.addEventListener('popstate',function(e){
+  if(!__layerStack.length) return;
+  var kind=__layerStack[__layerStack.length-1];
+  if(kind==='lightbox'){
+    /* 看大图时返回键无效：直接吞掉返回，保持灯箱打开，只有点关闭按钮才关。
+       但如果是用户点了灯箱的关闭按钮（__closeLightboxByButton），关掉后不再补状态 */
+    if(window.__lbCloseRequested){ window.__lbCloseRequested=false; __layerStack.pop(); closeLightbox(true); }
+    else { try{ history.pushState({sjLayer:__layerStack.length},''); }catch(err){} }
+    return;
+  }
+  /* drawer */
+  __layerStack.pop();
+  closeDrawer(true);
+  try{ history.pushState({sjRoot:1},''); }catch(err){}
+});
 
 /* 抽屉 */
 function openDrawer(no){
   var r=ROOMS[no]; if(!r) return;
+  if(!document.getElementById('drawer').classList.contains('show')) pushLayer('drawer');
+  window.__curImgs = (r.imgs||[]).slice();
   var st=STATUS[no]||'rented';
   var stText = st==='vacant'?'可租':(st==='booked'?'已预订':'已租');
   var stCls = st==='booked'?' booked':'';
@@ -531,9 +673,9 @@ function openDrawer(no){
   }
   if(r.desc) body+='<p class="d-desc">'+r.desc+'</p>';
   if(r.imgs && r.imgs.length){
-    body+='<p class="d-sub">📷 房间实拍</p><div class="media-grid">';
+    body+='<p class="d-sub">📷 房间实拍（点击看大图）</p><div class="media-grid">';
     for(var k=0;k<r.imgs.length;k++){
-      body+='<div class="ph" style="background-image:url(\''+r.imgs[k]+'\');background-size:cover;background-position:center;"></div>';
+      body+='<div class="ph" style="background-image:url(\''+r.imgs[k]+'\');background-size:cover;background-position:center;cursor:pointer;" onclick="openLightbox(window.__curImgs,'+k+')"></div>';
     }
     body+='</div>';
     body+='<div class="video-cta" onclick="showWx()"><span class="vc-play">▶</span><div><b>想看房间视频？</b><span>点这里加微信，房东直接发给你</span></div></div>';
@@ -556,14 +698,39 @@ function openDrawer(no){
   document.getElementById('drawer').classList.add('show');
   document.body.style.overflow='hidden';
 }
-function closeDrawer(){
+function closeDrawer(fromBack){
+  if(!document.getElementById('drawer').classList.contains('show')) return;
   document.getElementById('drawerMask').classList.remove('show');
   document.getElementById('drawer').classList.remove('show');
   document.body.style.overflow='';
+  if(!fromBack) popLayerSilent();
 }
 
+function openNav(){
+  /* 只保留系统地图：默认搜怡园宾馆（沙井村店），我家就在隔壁 */
+  openNavApp('sys');
+}
+function openNavApp(which){
+  var addr='西安市雁塔区沙井村北口403号';
+  var kw='怡园宾馆(沙井村北口店)';
+  var s=(window.__site||{});
+  var name=encodeURIComponent(s.title||'沙井村403号小院');
+  var q=encodeURIComponent(kw);
+  var url;
+  if(which==='amap'){
+    if(s.lng&&s.lat) url='https://uri.amap.com/marker?position='+s.lng+','+s.lat+'&name='+name+'&coordinate=gaode&callnative=1&src=web';
+    else url='https://uri.amap.com/search?keyword='+q+'&src=web&callnative=1';
+  } else if(which==='baidu'){
+    url='https://api.map.baidu.com/geocoder?address='+q+'&output=html&src=webapp';
+  } else {
+    /* 系统地图：优先用经纬度，否则用怡园宾馆关键词 */
+    if(s.lng&&s.lat) url='geo:'+s.lng+','+s.lat+'?q='+encodeURIComponent(s.title||kw);
+    else url='geo:0,0?q='+q;
+  }
+  window.location.href=url;
+}
 function copyAddr(){
-  var t='西安市雁塔区沙井村北口403号（怡园宾馆隔壁）';
+  var t='怡园宾馆(沙井村北口店) —— 西安市雁塔区沙井村北口403号（怡园宾馆隔壁）';
   var ok=false;
   try{
     var ta=document.createElement('textarea');
@@ -574,16 +741,449 @@ function copyAddr(){
   }catch(e){}
   alert(ok?'地址已复制，可直接粘贴给司机 🚕':'请手动记录：'+t);
 }
-function showWx(){
-  alert('微信同手机号：13379062987\n在微信里搜索添加，或直接拨打 13379062987 📞');
+function showWx(){ document.getElementById('wxModal').classList.add('show'); document.body.style.overflow='hidden'; }
+function closeWx(){ document.getElementById('wxModal').classList.remove('show'); document.body.style.overflow=''; }
+function copyWx(){
+  var t=document.getElementById('wxidText').textContent;
+  var ok=function(){ var b=document.querySelector('.wxid button'); if(b){ b.textContent='已复制 ✓'; setTimeout(function(){b.textContent='复制';},1500); } };
+  try{ navigator.clipboard?navigator.clipboard.writeText(t).then(ok,ok):(function(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);ok();})(); }catch(e){ ok(); }
 }
+/* 点击弹窗外部背景关闭（键盘 Esc）*/
+document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ var m=document.getElementById('wxModal'); if(m&&m.classList.contains('show')) closeWx(); } });
 
+/* 页脚年份（更新日期由云端数据渲染）*/
 (function(){
   var d=new Date();
-  var s=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-  document.getElementById('footer-date').textContent='本页更新于 '+s;
+  var el=document.getElementById('footer-date');
+  if(el && !el.textContent) el.textContent='';
+})();
+
+/* 页面加载时压入一个根状态，避免返回键直接退出网页 */
+try{ history.replaceState({sjRoot:1},''); }catch(e){}
+
+</script>
+<!-- CLOUDBASE_INJECT_V1 -->
+<script>
+/* ============================================================
+   云数据加载：启动时从 CloudBase 拉取实时房态 + 网站文字 + 图片
+   接口：PostgREST 风格 HTTP API（Publishable Key 匿名可读）
+   兜底：任何失败都保持原静态内容，不影响展示
+   ============================================================ */
+(function () {
+  var ENV_ID = "shajing403-d4g4cnd3z30848c75";
+  var PUB_KEY = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBmNGU4NDY2LWI4MzQtNGUwNS1hYmJlLTA5MmQ1MjE3ODI4YiJ9.eyJpc3MiOiJodHRwczovL3NoYWppbmc0MDMtZDRnNGNuZDN6MzA4NDhjNzUuYXAtc2hhbmdoYWkudGNiLWFwaS50ZW5jZW50Y2xvdWRhcGkuY29tIiwic3ViIjoiYW5vbiIsImF1ZCI6InNoYWppbmc0MDMtZDRnNGNuZDN6MzA4NDhjNzUiLCJleHAiOjQwOTQ0Mjg2NzgsImlhdCI6MTc5MDc0NTQ3OCwibm9uY2UiOiJvYnRvS05xMFEzR0d2ek91YzVheVpBIiwiYXRfaGFzaCI6Im9idG9LTnEwUTNHR3Z6T3VjNWF5WkEiLCJuYW1lIjoiQW5vbnltb3VzIiwic2NvcGUiOiJhbm9ueW1vdXMiLCJwcm9qZWN0X2lkIjoic2hhamluZzQwMy1kNGc0Y25kM3ozMDg0OGM3NSIsIm1ldGEiOnsicGxhdGZvcm0iOiJQdWJsaXNoYWJsZUtleSJ9LCJyb2xlIjoiYW5vbiIsImlzX2Fub255bW91cyI6dHJ1ZSwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiYW5vbnltb3VzIiwicHJvdmlkZXJzIjpbImFub255bW91cyJdfSwidXNlcl9tZXRhZGF0YSI6eyJuYW1lIjoiQW5vbnltb3VzIn0sInVzZXJfdHlwZSI6IiIsImNsaWVudF90eXBlIjoiY2xpZW50X3VzZXIiLCJpc19zeXN0ZW1fYWRtaW4iOmZhbHNlfQ.Pd-JIJvYDTeYqap0V7XXTCFaDILIqkJnvC_qksW2VUSdqkCX9CYjFJoyhQy3vIGk1KFyj7-P28lqBHUtBfImXtlvsLkMNUoH2C4zP9lbSxW5Vh-C9Ggi3UoFrI4obe_qGD9zkegVawgmOyWvAXRU1Adz4j87FvgcgTQOkA1hNU5-It55bhSyPmnihtXqLPupH0WUMIIjnFREVW-7MFePLRNUQnOrqWI2zw_cELsIiyj8sLuBKkz7hxIl1a_1v910qzr5x2E5TC_fkEiv6D7cbIpjXgq_bgN0xcdodImBLX8t81ZjHoymLAZULDSvle-h5p4avJRw2wq_fHTJ3ZH16Q";
+  // 自有域名下走同源反代 /api（绕开 CloudBase 安全域名白名单的限制）；
+  // 其他域名（默认域名 / 本地）继续直连网关绝对地址。
+  var IS_OWN = /(^|\.)shajing403\.cn$/.test(location.hostname);
+  var BASE = IS_OWN
+    ? "/api"
+    : "https://" + ENV_ID + ".api.tcloudbasegateway.com/v1/rdb/rest";
+  // 图片展示统一走绝对网关地址（<img>/背景图不发 Origin，不受白名单影响）
+  var OBJ = "https://" + ENV_ID + ".api.tcloudbasegateway.com/v1/storages/object/";
+  var SCHEME = ["Bea", "rer"].join("");
+  function auth() { return { Authorization: SCHEME + " " + PUB_KEY }; }
+  function fullUrl(u) {
+    if (!u) return u;
+    if (/^https?:\/\//.test(u) || u.indexOf("data:") === 0) return u;
+    return OBJ.replace(/\/$/, "") + "/" + String(u).replace(/^\//, "");
+  }
+
+  /* ---------- 小工具 ---------- */
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function setText(sel, val) {
+    var el = document.querySelector(sel);
+    if (el && val != null && val !== "") el.textContent = val;
+  }
+  function isArr(a) { return Object.prototype.toString.call(a) === "[object Array]"; }
+
+  /* ---------- 房间房态 ---------- */
+  function applyRooms(rows) {
+    if (!rows || !rows.length) return;
+    var STATUS = {}, ROOMS = {}, byFloor = {}, order = [];
+    rows.forEach(function (r) {
+      STATUS[r.room_no] = r.status;
+      if (r.status !== "rented") {
+        ROOMS[r.room_no] = {
+          price: r.rent || null,
+          pay: r.pay || "",
+          tags: isArr(r.tags) ? r.tags : [],
+          desc: r.description || "",
+          imgs: isArr(r.imgs) ? r.imgs.map(fullUrl) : [],
+        };
+      }
+      var f = r.floor;
+      if (byFloor[f] === undefined) { byFloor[f] = []; order.push(f); }
+      byFloor[f].push(r.room_no);
+    });
+    window.STATUS = STATUS;
+    window.ROOMS = ROOMS;
+    var floors = Object.keys(byFloor).map(Number).sort(function (a, b) { return b - a; })
+      .map(function (f) { return { floor: f, tag: f + "F", rooms: byFloor[f] }; });
+    window.FLOORS = floors;
+    if (typeof renderFloors === "function") renderFloors();
+    if (typeof updateCounts === "function") updateCounts();
+    renderVacantCards(ROOMS, STATUS); // 实时“现在就能租”卡片
+  }
+
+  /* ---------- “现在就能租”卡片（实时渲染） ---------- */
+  var FLOOR_CN = { 1: "1楼", 2: "2楼", 3: "3楼", 4: "4楼", 5: "5楼", 6: "6楼", 7: "7楼" };
+  function renderVacantCards(ROOMS, STATUS) {
+    var box = document.getElementById("vacantList");
+    if (!box) return;
+    var nos = Object.keys(ROOMS).filter(function (no) { return STATUS[no] === "vacant"; })
+      .sort(function (a, b) { return (parseInt(a, 10) || 0) - (parseInt(b, 10) || 0); });
+    // 份数
+    var cntEl = document.getElementById("vacCountNote");
+    if (cntEl) cntEl.textContent = "共 " + nos.length + " 间";
+    if (!nos.length) {
+      box.innerHTML = '<div class="empty-state"><span class="e">🏠</span>当前暂无空房，房源会实时更新<br>欢迎加微信留个意向</div>';
+      return;
+    }
+    box.innerHTML = nos.map(function (no) {
+      var r = ROOMS[no] || {};
+      var price = r.price != null ? r.price : "面议";
+      var cover = (r.imgs && r.imgs[0]) ? r.imgs[0] : "";
+      var tags = (r.tags || []).slice(0, 5).map(function (t, i) {
+        return '<span class="tag' + (i < 2 ? " hl" : "") + '">' + esc(t) + '</span>';
+      }).join("");
+      var nimg = (r.imgs || []).length;
+      var floorNo = String(no).charAt(0);
+      var floorTxt = FLOOR_CN[floorNo] || (floorNo + "楼");
+      var imgEl = cover
+        ? '<img loading="lazy" alt="' + esc(no) + '房间实拍" src="' + esc(cover) + '" onload="imgOK(this)">'
+        : '<span class="noimg">📷 照片整理中</span>';
+      return '' +
+        '<div class="vac-card">' +
+        '  <div class="cover" onclick="openDrawer(\'' + esc(no) + '\')">' +
+        '    <span class="no">' + esc(no) + ' · ' + esc(floorTxt) + '</span>' +
+        imgEl +
+        (nimg ? '    <span class="cnt">📷 ' + nimg + ' 张实拍</span>' : '') +
+        '  </div>' +
+        '  <div class="body">' +
+        '    <div class="row1"><span class="price">¥' + esc(price) + '<small>/月</small></span>' +
+        (r.pay ? '<span class="pay">' + esc(r.pay) + '</span>' : '') + '</div>' +
+        (tags ? '    <div class="tags">' + tags + '</div>' : '') +
+        '    <div class="btns">' +
+        '      <a class="tel" href="tel:13379062987">📞 打电话</a>' +
+        '      <a class="wx" href="#" onclick="showWx();return false;">💬 加微信拿视频</a>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>';
+    }).join("");
+  }
+
+  /* ---------- 网站文字渲染 ---------- */
+  function renderSite(site) {
+    site = site || {};
+    window.__site = site;
+
+    // 顶部
+    setText(".hero-badge", site.badge);
+    setText(".hero-title", site.title);
+    setText(".hero-sub", site.sub);
+    if (site.title) document.title = site.title + " · 房东直租";
+
+    // 首屏价格带（价格未配置时不显示）
+    var pb = document.getElementById("priceBand");
+    if (pb) {
+      if (site.priceFrom != null && site.priceFrom !== "") {
+        pb.style.display = "";
+        var pn = pb.querySelector(".num"); if (pn) pn.textContent = site.priceFrom;
+        var pu = pb.querySelector(".unit"); if (pu) pu.textContent = (site.priceUnit || "起/月");
+      }
+    }
+    // 首屏空房呼吸灯文字由 renderVacantCards 处理数量，这里只兜底
+
+    // 更新条（相对时间；超过 7 天变红）
+    var ubTxt = document.getElementById("updText");
+    var ds = site.update || "";
+    if (ubTxt) {
+      var days = -1;
+      if (/^\d{4}-\d{2}-\d{2}/.test(ds)) {
+        var upd = new Date(ds + "T00:00:00");
+        days = Math.floor((new Date() - upd) / 86400000);
+      }
+      ubTxt.textContent = days < 0 ? ds
+        : (days <= 0 ? "今天" : (days === 1 ? "昨天" : days + " 天前"));
+      var bar = document.getElementById("updBar");
+      if (bar) bar.classList.toggle("stale", days >= 7);
+    }
+    // 页脚日期
+    var fd = document.getElementById("footer-date");
+    if (fd) fd.textContent = "本页更新于 " + (ds || "");
+
+    // 顶部数据条：新布局第 2 格是“当前可租”（实时），第 3 格是“付款方式”（静态），
+    // 云端 stats 里的旧顺序（[层][总房源][当前可租][独卫]）只取第 1、4 项，避免重复/错位
+    if (isArr(site.stats) && site.stats.length) {
+      var items = document.querySelectorAll(".strip .item");
+      // 云端 stats 旧顺序：[0]=层 [1]=总房源 [2]=当前可租 [3]=独卫
+      // 新布局：第1格=层(s[0])，第2格=当前可租(实时，不覆写)，第3格=付款方式(静态)，第4格=独卫(s[3])
+      var pairs = [[0, 0], [3, 3]];
+      pairs.forEach(function (pr) {
+        var st = site.stats[pr[0]], it = items[pr[1]];
+        if (!st || !it) return;
+        var n = it.querySelector(".num"), l = it.querySelector(".lbl");
+        if (n) n.innerHTML = esc(st[0]) + (st[1] ? "<small>" + esc(st[1]) + "</small>" : "");
+        if (l) l.textContent = st[2] || "";
+      });
+    }
+
+    // 房源亮点
+    if (isArr(site.highlights)) {
+      var hl = document.querySelector(".highlights");
+      if (hl) {
+        var h = "";
+        site.highlights.forEach(function (x, i) {
+          var e = x[0] || "", t = x[1] || "", d = x[2] || "";
+          if (i >= 4) h += '<div class="hl-card wide">' + (e ? '<span class="e">' + esc(e) + '</span>' : '') + '<div><p class="t">' + esc(t) + '</p><p class="d">' + esc(d) + '</p></div></div>';
+          else h += '<div class="hl-card">' + (e ? '<span class="e">' + esc(e) + '</span>' : '') + '<p class="t">' + esc(t) + '</p><p class="d">' + esc(d) + '</p></div>';
+        });
+        hl.innerHTML = h;
+      }
+    }
+
+    // 地址
+    setText(".addr-main", site.addr);
+    setText(".addr-tip", site.addrtip);
+
+    // 周边配套（“出门就能到”）
+    if (isArr(site.poi)) {
+      var poi = document.getElementById("poiGrid");
+      if (poi) {
+        poi.innerHTML = site.poi.map(function (p) {
+          return '<div class="cell"><span class="fi">' + esc(p[0]) + '</span><span class="ft">' + esc(p[1]) + (p[2] ? '<span class="fs">' + esc(p[2]) + '</span>' : '') + '</span></div>';
+        }).join("");
+      }
+    }
+
+    // 配套设施
+    if (isArr(site.facilities)) {
+      var fg = document.querySelector("#amenities .facility-grid");
+      if (fg) {
+        fg.innerHTML = site.facilities.map(function (f, i) {
+          var full = (i === site.facilities.length - 1 && site.facilities.length % 2 === 1) ? ' style="grid-column:1/-1;"' : '';
+          return '<div class="cell"' + full + '><span class="fi">' + esc(f[0]) + '</span><span class="ft">' + esc(f[1]) + (f[2] ? '<span class="fs">' + esc(f[2]) + '</span>' : '') + '</span></div>';
+        }).join("");
+      }
+    }
+
+    // 水电费用
+    if (isArr(site.utils)) {
+      var ugs = document.querySelectorAll(".facility-grid");
+      var ug = ugs[ugs.length - 1];
+      if (ug && ug !== document.querySelector("#amenities .facility-grid")) {
+        ug.innerHTML = site.utils.map(function (u) {
+          return '<div class="cell"><span class="fi">' + esc(u[0]) + '</span><span class="ft">' + esc(u[1]) + (u[2] ? '<span class="fs">' + esc(u[2]) + '</span>' : '') + '</span></div>';
+        }).join("");
+      }
+    }
+    setText(".price-note", site.priceNote);
+
+    // 房东承诺
+    if (isArr(site.promise)) {
+      var pr = document.querySelector(".promise");
+      if (pr) {
+        pr.innerHTML = site.promise.map(function (p) {
+          return '<div class="promise-item"><span class="pi">✅</span><div><p class="pt">' + esc(p[0]) + '</p><p class="pd">' + esc(p[1]) + '</p></div></div>';
+        }).join("");
+      }
+    }
+
+    // 入住流程
+    if (isArr(site.flow)) {
+      var fl = document.querySelector(".flow");
+      if (fl) {
+        fl.innerHTML = site.flow.map(function (f, i) {
+          return '<div class="flow-step"><div class="flow-num">' + (i + 1) + '</div><div class="flow-body"><p class="ft">' + esc(f[0]) + '</p><p class="fd">' + esc(f[1]) + '</p></div></div>';
+        }).join("");
+      }
+    }
+
+    // 常见问答
+    if (isArr(site.faq)) {
+      var faqWrap = document.querySelector(".faq-item");
+      if (faqWrap) {
+        var parent = faqWrap.parentNode;
+        parent.innerHTML = site.faq.map(function (q) {
+          return '<div class="faq-item"><p class="faq-q"><span class="q">Q</span>' + esc(q[0]) + '</p><p class="faq-a">' + esc(q[1]) + '</p></div>';
+        }).join("");
+      }
+    }
+
+    // 联系方式
+    if (site.who) setText(".contact .who", site.who);
+    if (site.viewtime) {
+      document.querySelectorAll(".cl-text b").forEach(function (b) {
+        if (/看房时间/.test(b.textContent)) { var sp = b.parentNode.querySelector("span"); if (sp) sp.textContent = site.viewtime; }
+        if (/看房地址/.test(b.textContent)) { var sp2 = b.parentNode.querySelector("span"); if (sp2 && site.addr) sp2.textContent = site.addr; }
+      });
+    }
+    if (site.tel) {
+      document.querySelectorAll('a[href^="tel:"]').forEach(function (a) { a.href = "tel:" + site.tel; });
+      document.querySelectorAll(".cl-text b").forEach(function (b) {
+        if (/电话咨询/.test(b.textContent)) { var sp = b.parentNode.querySelector("span"); if (sp) sp.textContent = site.tel; }
+      });
+      document.querySelectorAll(".cl-text span").forEach(function (s) {
+        if (/^\d{7,}$/.test(s.textContent.trim())) s.textContent = site.tel;
+      });
+    }
+    if (site.qrTip) setText(".qr-tip", site.qrTip);
+
+    // 页脚
+    if (site.foot1) {
+      var f1 = document.querySelector(".footer strong");
+      if (f1) f1.textContent = site.foot1;
+      var fdiv = document.querySelector(".footer");
+      if (fdiv) {
+        fdiv.innerHTML = '<strong>' + esc(site.foot1) + '</strong><br>' + esc(site.foot2 || '') + '<br><span id="footer-date">' + (site.update ? '本页更新于 ' + esc(site.update) : '') + '</span>';
+      }
+    }
+
+    // 导航按钮
+    var nav = document.querySelector(".nav-btn.primary");
+    if (nav && site.addr) {
+      var mapHref;
+      if (site.lng && site.lat) {
+        mapHref = "https://uri.amap.com/marker?position=" + site.lng + "," + site.lat + "&name=" + encodeURIComponent(site.title || "房源") + "&coordinate=gaode&callnative=1&src=web";
+      } else {
+        mapHref = "https://uri.amap.com/search?keyword=" + encodeURIComponent(site.addr) + "&src=web&callnative=1";
+      }
+      nav.setAttribute("href", mapHref);
+    }
+
+    // 文字渲染完成后，确保房态数字以实时数据为准
+    if (typeof updateCounts === "function") updateCounts();
+  }
+
+  /* ---------- 图片 ---------- */
+  function applyImages(images) {
+    images = images || {};
+    var hero = document.querySelector(".hero-img");
+    if (hero && images.cover) hero.style.backgroundImage = 'url("' + fullUrl(images.cover) + '")';
+    var qr = document.getElementById("qrBox");
+    if (qr && images.qr) {
+      qr.style.backgroundImage = 'url("' + fullUrl(images.qr) + '")';
+      qr.innerHTML = "";
+    }
+    var wxqr = document.getElementById("wxQrBox");
+    if (wxqr && images.qr) {
+      wxqr.style.backgroundImage = 'url("' + fullUrl(images.qr) + '")';
+      wxqr.innerHTML = "";
+    }
+    // 照片墙：<img> 懒加载 + 骨架屏（原为 CSS 背景图）
+    document.querySelectorAll(".photo-mosaic .pm").forEach(function (pm, idx) {
+      var src = images["p" + (idx + 1)];
+      if (!src) return;
+      var im = pm.querySelector("img");
+      if (!im) {
+        im = document.createElement("img");
+        im.loading = "lazy";
+        im.onload = function () { imgOK(im); };
+        pm.insertBefore(im, pm.firstChild);
+      }
+      im.alt = im.alt || "实拍照片";
+      im.src = fullUrl(src);
+    });
+  }
+
+  /* ---------- 图片灯箱（点击放大 + 左右滑动） ---------- */
+  function ensureLightbox() {
+    if (document.getElementById("__lb")) return;
+    var lb = document.createElement("div");
+    lb.id = "__lb";
+    lb.style.cssText = "position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;overscroll-behavior:contain;touch-action:none;";
+    lb.innerHTML =
+      '<div id="__lbStage" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;">' +
+      '  <img id="__lbImg" style="max-width:96vw;max-height:86vh;object-fit:contain;user-select:none;-webkit-user-drag:none;">' +
+      '</div>' +
+      '<div id="__lbCount" style="position:absolute;top:14px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;background:rgba(0,0,0,.5);padding:4px 12px;border-radius:20px;"></div>' +
+      '<button id="__lbClose" style="position:absolute;top:12px;right:14px;background:rgba(255,255,255,.2);border:none;color:#fff;width:38px;height:38px;border-radius:50%;font-size:20px;cursor:pointer;">✕</button>' +
+      '<button id="__lbPrev" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);color:#fff;font-size:30px;background:rgba(255,255,255,.16);border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;">‹</button>' +
+      '<button id="__lbNext" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);color:#fff;font-size:30px;background:rgba(255,255,255,.16);border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;">›</button>';
+    document.body.appendChild(lb);
+    document.getElementById("__lbClose").onclick = function () { window.__lbCloseRequested = true; closeLightbox(); };
+    document.getElementById("__lbPrev").onclick = function (e) { e.stopPropagation(); lbGo(-1); };
+    document.getElementById("__lbNext").onclick = function (e) { e.stopPropagation(); lbGo(1); };
+    lb.addEventListener("click", function (e) { if (e.target === lb || e.target.id === "__lbStage") { window.__lbCloseRequested = true; closeLightbox(); } });
+    var sx = null;
+    var stage = document.getElementById("__lbStage");
+    stage.addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener("touchend", function (e) {
+      if (sx === null) return;
+      var dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 40) lbGo(dx < 0 ? 1 : -1);
+      sx = null;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (document.getElementById("__lb").style.display !== "flex") return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") lbGo(-1);
+      if (e.key === "ArrowRight") lbGo(1);
+    });
+  }
+  var LB_LIST = [], LB_IDX = 0;
+  window.openLightbox = function (list, idx) {
+    if (!list || !list.length) return;
+    ensureLightbox();
+    LB_LIST = list || []; LB_IDX = idx || 0;
+    renderLightbox();
+    document.getElementById("__lb").style.display = "flex";
+    document.body.style.overflow = "hidden";
+    try { if (typeof pushLayer === "function") pushLayer("lightbox"); } catch (e) {}
+  };
+  function renderLightbox() {
+    var img = document.getElementById("__lbImg");
+    img.src = LB_LIST[LB_IDX] || "";
+    var c = document.getElementById("__lbCount");
+    c.textContent = LB_LIST.length > 1 ? (LB_IDX + 1) + " / " + LB_LIST.length : "";
+    var multi = LB_LIST.length > 1;
+    document.getElementById("__lbPrev").style.display = multi ? "block" : "none";
+    document.getElementById("__lbNext").style.display = multi ? "block" : "none";
+  }
+  function lbGo(d) { LB_LIST.length && (LB_IDX = (LB_IDX + d + LB_LIST.length) % LB_LIST.length); renderLightbox(); }
+  function closeLightbox(fromBack) {
+    var el = document.getElementById("__lb");
+    if (!el || el.style.display === "none") return;
+    el.style.display = "none";
+    document.body.style.overflow = "";
+    /* 若由返回键/关闭按钮触发，通知主脚本弹栈 */
+    if (!fromBack) { try { if (typeof popLayerSilent === "function") popLayerSilent(); } catch (e) {} }
+  }
+
+  /* ---------- 启动 ---------- */
+  function bootRooms() {
+    return fetch(BASE + "/rooms?select=room_no,floor,status,rent,pay,tags,description,imgs,note&order=room_no.asc", { headers: auth() })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (rows) { applyRooms(rows); })
+      .catch(function (e) { console.warn("[rooms] 加载失败，用静态兜底：", e.message); });
+  }
+  function bootSite() {
+    return fetch(BASE + "/app_state?id=eq.main&select=data", { headers: auth() })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (rows) {
+        var data = (rows && rows[0] && rows[0].data) || {};
+        renderSite(data.site);
+        applyImages(data.images);
+      })
+      .catch(function (e) { console.warn("[site] 加载失败：", e.message); });
+  }
+
+  function boot() {
+    bootRooms();
+    bootSite();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
 
 </script>
+<!-- /CLOUDBASE_INJECT_V1 -->
 </body>
 </html>
